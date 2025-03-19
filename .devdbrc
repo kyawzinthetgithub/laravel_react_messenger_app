@@ -1,0 +1,6 @@
+[
+  {
+    "type": "sqlite",
+    "path": "c:\\Users\\PC\\Documents\\laravel_react_messenger\\database\\database.sqlite"
+  }
+]
