@@ -23,8 +23,8 @@ class UserResource extends JsonResource
             'is_admin' => (bool)$this->is_admin,
             'last_message' => $this->last_message,
             'last_message_date' => $this->last_message_date,
-            'created_at' => $this->created_at->format('d-m-Y'),
-            'updated_at' => $this->updated_at->format('d-m-Y'),
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }
