@@ -19,9 +19,7 @@ const ChatLayout = ({ children }) => {
         const search = e.target.value.toLowerCase();
         setLocalConversations(
             conversations.filter((conversation) => {
-                return (
-                    conversation.name.toLowerCase().includes(search)
-                );
+                return conversation.name.toLowerCase().includes(search);
             })
         );
     };
@@ -30,8 +28,9 @@ const ChatLayout = ({ children }) => {
     const [sortedConversations, setSortedConversations] = useState([]);
 
     useEffect(() => {
+    if (localConversations.length > 0) {
         setSortedConversations(
-            localConversations.sort((a, b) => {
+            [...localConversations].sort((a, b) => {
                 if (a.blocked_at && b.blocked_at) {
                     return a.blocked_at > b.blocked_at ? 1 : -1;
                 } else if (a.blocked_at) {
@@ -53,7 +52,8 @@ const ChatLayout = ({ children }) => {
                 }
             })
         );
-    }, []);
+    }
+}, [localConversations]);
 
     useEffect(() => {
         setLocalConversations(conversations);
@@ -122,6 +122,7 @@ const ChatLayout = ({ children }) => {
                     </div>
                     <div className="flex-1 overflow-auto">
                         {sortedConversations &&
+                        sortedConversations.length > 0 ? (
                             sortedConversations.map((conversation) => (
                                 <ConversationItem
                                     key={`${
@@ -133,8 +134,12 @@ const ChatLayout = ({ children }) => {
                                     online={!!isUserOnline(conversation.id)}
                                     selectedConversation={selectedConversation}
                                 />
-
-                            ))}
+                            ))
+                        ) : (
+                            <div className="text-gray-400 text-center mt-4">
+                                No conversations available.
+                            </div>
+                        )}
                     </div>
                 </div>
                 {/* for chat */}
