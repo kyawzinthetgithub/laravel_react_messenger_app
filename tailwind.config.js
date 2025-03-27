@@ -18,5 +18,13 @@ export default {
         },
     },
 
-    plugins: [forms],
+    plugins: [forms,require('daisyui')],
+    daisyui: {
+    themes: 'dim', // Specify themes
+    base: true, // Enable base styles
+    utils: true, // Enable utility classes
+    logs: true, // Enable logs
+    rtl: false, // Disable right-to-left support
+    prefix: "", // Add a prefix to DaisyUI classes
+},
 };

@@ -35,7 +35,7 @@ const ConversationItem = ({
                 }
                 preserveState
                 className={
-                    "conversation-item flex items-center gap-2 p-2 text-gray-300 transition-all cursor-pointer select-none border-l-4 hover:bg-black/30" +
+                    "conversation-item flex items-center gap-2 p-2 text-gray-300 transition-all cursor-pointer select-none hover:bg-black/30" +
                     classes +
                     (conversation.is_user && currentUser.is_admin
                         ? "pr-2"
@@ -54,7 +54,7 @@ const ConversationItem = ({
                             : "")
                     }
                 >
-                    <div className="flex gap-1 justify-center items-center">
+                    <div className="flex gap-1 justify-between items-center">
                         <h3 className="text-sm font-semibold overflow-hidden text-nowrap text-ellipsis">
                             {conversation.name}
                         </h3>
@@ -70,10 +70,10 @@ const ConversationItem = ({
                             {conversation.last_message}
                         </p>
                     )}
-                    {currentUser.is_admin && conversation.is_user && (
-                        <UserOptionsDropDown user={conversation} />
-                    )}
                 </div>
+                {currentUser.is_admin && conversation.is_user && (
+                    <UserOptionsDropDown user={conversation} />
+                )}
             </Link>
         </>
     );
