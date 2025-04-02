@@ -1,4 +1,4 @@
-const UserAvatar = ({user,online=null,profile=false}) => {
+const UserAvatar = ({user,online=false,profile=false}) => {
     let onlineClass = online === true ? "online" : online === false ? "offline" : "";
     let sizeClass = profile ? "w-40" : "w-8"
     return (

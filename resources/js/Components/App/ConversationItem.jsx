@@ -5,7 +5,7 @@ import UserOptionsDropDown from "@/Components/App/UserOptionsDropDown";
 
 const ConversationItem = ({
     conversation,
-    online = null,
+    online = false,
     selectedConversation = null,
 }) => {
     const page = usePage();
