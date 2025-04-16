@@ -71,6 +71,7 @@ const ChatLayout = ({ children }) => {
                 }));
             })
             .joining((user) => {
+console.log('joining');
                 setOnlineUsers((prevOnlineUsers) => {
                     const newOnlineUsers = { ...prevOnlineUsers };
                     newOnlineUsers[user.id] = user;
